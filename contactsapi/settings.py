@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'authentication',
     'contacts',
     'drf_yasg',
+    'django-cors-headers'
 ]
 
 
@@ -66,6 +67,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -90,7 +93,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'contactsapi.wsgi.application'
-
+#CORS
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
